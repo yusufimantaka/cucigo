@@ -1,0 +1,623 @@
+\documentclass[aspectratio=169,professionalfonts]{beamer}
+
+% ----- THEME AND PACKAGES -----
+\usetheme{UGM}
+\usefonttheme{professionalfonts}
+\usepackage[type1, sfdefault]{atkinson}
+\usepackage[T1]{fontenc}
+
+\lstdefinestyle{mystyle}{
+  backgroundcolor=\color{backcolour},
+  commentstyle=\color{codegreen},
+  keywordstyle=\color{ugmBlue},
+  numberstyle=\tiny\color{codegray},
+  stringstyle=\color{codepurple},
+  basicstyle=\ttfamily\footnotesize,
+  breakatwhitespace=false,
+  breaklines=true,
+  captionpos=b,
+  keepspaces=true,
+  numbers=left,
+  numbersep=5pt,
+  showspaces=false,
+  showstringspaces=false,
+  showtabs=false,
+  tabsize=2
+}
+\lstset{style=mystyle}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{cucigoTeal}{HTML}{308A74}
+\definecolor{cucigoCoral}{HTML}{E06040}
+
+% ----- PRESENTATION METADATA -----
+\title{CuciGo \\ Software Engineering Process}
+\subtitle{AI-Assisted Development of a Laundry Marketplace Application}
+\author{Group 6 $|$ Universitas Gadjah Mada (UGM)}
+\date{June 3, 2026}
+
+\begin{document}
+
+% ----- TITLE FRAME -----
+\begin{frame}[plain]
+    \titlepage
+\end{frame}
+
+% ----- TABLE OF CONTENTS -----
+\begin{frame}
+    \frametitle{Contents}
+    \begin{multicols}{2}
+        \tableofcontents
+    \end{multicols}
+\end{frame}
+
+% ==========================================
+\section{Project Overview}
+% ==========================================
+
+\begin{frame}
+    \frametitle{What is CuciGo?}
+
+    \textbf{CuciGo} is a mobile-first laundry pickup and delivery marketplace connecting three user groups:
+
+    \begin{columns}[T]
+        \begin{column}{0.32\textwidth}
+            \begin{tcolorbox}[colback=cucigoTeal!10,colframe=cucigoTeal,title=\centering Students]
+                \centering
+                Browse services, place orders, track laundry, manage payments
+            \end{tcolorbox}
+        \end{column}
+
+        \begin{column}{0.32\textwidth}
+            \begin{tcolorbox}[colback=ugmBlue!10,colframe=ugmBlue,title=\centering Partners]
+                \centering
+                Manage incoming orders, update status, set pricing
+            \end{tcolorbox}
+        \end{column}
+
+        \begin{column}{0.32\textwidth}
+            \begin{tcolorbox}[colback=cucigoCoral!10,colframe=cucigoCoral,title=\centering Drivers]
+                \centering
+                Navigate routes, confirm pickups, update delivery status
+            \end{tcolorbox}
+        \end{column}
+    \end{columns}
+
+    \vspace{1em}
+    \begin{tcolorbox}[colback=ugmLightGrey,colframe=ugmBlue,title=Key Facts]
+        \begin{itemize}
+            \item 30 functional requirements (FR-1 to FR-30)
+            \item 4 user roles: Student, Partner, Driver, Admin
+            \item Tech stack: Next.js, TypeScript, Tailwind CSS, Prisma + SQLite
+        \end{itemize}
+    \end{tcolorbox}
+\end{frame}
+
+% ==========================================
+\section{AI-Assisted Software Engineering Process}
+% ==========================================
+
+\begin{frame}
+    \frametitle{Three-Phase AI-Assisted SE Process}
+
+    Our project followed a \textbf{three-phase software engineering process}, each phase leveraging a different AI tool:
+
+    \vspace{0.5em}
+
+    \begin{tikzpicture}[
+        node distance=1.5cm and 2.5cm,
+        phase/.style={draw, fill=ugmLightGrey, rounded corners, minimum width=4.2cm, minimum height=2.5cm, align=center, font=\small},
+        arrow/.style={->, thick, ugmBlue}
+    ]
+        \node[phase] (p1) {\textbf{Phase 1}\\Ideation \& SRS\\[0.3em]\textcolor{ugmBlue}{Kimi K2.6}\\Moonshot AI};
+        \node[phase, right=2cm of p1] (p2) {\textbf{Phase 2}\\UI/UX Design\\[0.3em]\textcolor{ugmBlue}{OpenDesign + Kimi K2.6}\\Open-source tool};
+        \node[phase, right=2cm of p2] (p3) {\textbf{Phase 3}\\Dev, Impl \& Testing\\[0.3em]\textcolor{ugmBlue}{GLM 5.1 + OpenCode}\\Z.ai};
+        \draw[arrow] (p1) -- (p2);
+        \draw[arrow] (p2) -- (p3);
+    \end{tikzpicture}
+
+    \vspace{1em}
+    \begin{tcolorbox}[colback=cucigoTeal!10,colframe=cucigoTeal,title=Why AI-Assisted?]
+        Each AI model was chosen for its strengths: Kimi for research and documentation, OpenDesign for visual prototyping, and GLM 5.1 for code generation with the OpenCode agentic harness.
+    \end{tcolorbox}
+\end{frame}
+
+% ==========================================
+\section{Phase 1: Ideation \& SRS Creation}
+% ==========================================
+
+\begin{frame}
+    \frametitle{Phase 1 --- Ideation \& SRS Creation}
+
+    \begin{columns}[T]
+        \begin{column}{0.55\textwidth}
+            \textbf{Tool:} Kimi K2.6 (Moonshot AI)
+
+            \vspace{0.5em}
+            \textbf{Process:}
+            \begin{enumerate}
+                \item Problem identification --- laundry pain points for Anak Kos
+                \item Feature brainstorming with multi-turn dialogue
+                \item Requirement elicitation following IEEE 830 structure
+                \item SRS document drafting with functional and non-functional requirements
+                \item Iterative refinement and compliance verification (PDP Law, Bank Indonesia)
+            \end{enumerate}
+        \end{column}
+
+        \begin{column}{0.42\textwidth}
+            \begin{tcolorbox}[colback=ugmLightGrey,colframe=ugmBlue,title=SRS Outputs]
+                \begin{itemize}
+                    \item 30 functional requirements (FR-1 to FR-30)
+                    \item 17 quality requirements (QR-1 to QR-17)
+                    \item 4 compliance requirements (CR-1 to CR-4)
+                    \item 4 user role definitions
+                    \item System architecture diagram
+                    \item Verification plan
+                \end{itemize}
+            \end{tcolorbox}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}
+    \frametitle{SRS --- Functional Requirements Overview}
+
+    \begin{table}
+        \centering
+        \rowcolors{2}{ugmLightGrey}{white}
+        \begin{tabular}{lll}
+            \rowcolor{ugmBlue!40}
+            \textcolor{white}{\textbf{Category}} & \textcolor{white}{\textbf{FR Range}} & \textcolor{white}{\textbf{Key Features}} \\
+            Authentication & FR-1 to FR-5 & Register, login, RBAC, profile \\
+            Laundry Ordering & FR-6 to FR-10 & Service selection, weight estimation, scheduling \\
+            Real-Time Tracking & FR-11 to FR-14 & Status updates, push notifications, map \\
+            GPS Location & FR-15 to FR-18 & Auto-detection, manual correction, routing \\
+            Payment \& Finance & FR-19 to FR-23 & E-wallet, bank transfer, spending tracker \\
+            Student Utilities & FR-24 to FR-26 & Shared laundry, reminders, favorites \\
+            Admin System & FR-27 to FR-30 & Dashboards, analytics, user management \\
+        \end{tabular}
+    \end{table}
+\end{frame}
+
+\begin{frame}
+    \frametitle{SRS --- System Architecture}
+
+    \begin{tikzpicture}[
+        node distance=1.2cm,
+        box/.style={draw, fill=ugmLightGrey, rounded corners, minimum width=3cm, minimum height=1cm, align=center, font=\small},
+        extbox/.style={draw, fill=cucigoTeal!10, rounded corners, minimum width=2.8cm, minimum height=0.8cm, align=center, font=\scriptsize},
+        arrow/.style={->, thick}
+    ]
+        \node[box, fill=cucigoCoral!15] (student) {Students\\(Mobile App)};
+        \node[box, fill=ugmBlue!10, right=2cm of student] (partner) {Partners\\(Dashboard)};
+        \node[box, fill=cucigoTeal!15, right=2cm of partner] (driver) {Drivers\\(Mobile App)};
+
+        \node[box, fill=ugmBlue!30, text=white, below=1.5cm of partner] (core) {\textbf{Core Services}\\Ordering, Tracking, GPS,\\Payment, Notifications};
+
+        \node[box, fill=ugmBlue!20, below=1.2cm of core] (infra) {\textbf{Backend Infrastructure}\\API Gateway, Auth, Database, Analytics};
+
+        \node[extbox, below=1.2cm of infra] (ext) {Map APIs $\cdot$ Payment Gateways $\cdot$ Push Notifications};
+
+        \draw[arrow] (student) -- (core);
+        \draw[arrow] (partner) -- (core);
+        \draw[arrow] (driver) -- (core);
+        \draw[arrow] (core) -- (infra);
+        \draw[arrow] (infra) -- (ext);
+    \end{tikzpicture}
+\end{frame}
+
+% ==========================================
+\section{Phase 2: UI/UX Design}
+% ==========================================
+
+\begin{frame}
+    \frametitle{Phase 2 --- UI/UX Design}
+
+    \begin{columns}[T]
+        \begin{column}{0.55\textwidth}
+            \textbf{Tool:} OpenDesign (open-source) + Kimi K2.6
+
+            \vspace{0.5em}
+            \textbf{Process:}
+            \begin{enumerate}
+                \item Defined design tokens from initial mood boarding
+                \item Created CSS custom properties (oklch color system)
+                \item Generated 13 HTML screen prototypes:
+                \begin{itemize}
+                    \item 10 student screens
+                    \item 1 driver screen
+                    \item 1 partner screen
+                    \item 1 admin screen
+                \end{itemize}
+                \item Iterative feedback with Kimi to refine layouts
+            \end{enumerate}
+        \end{column}
+
+        \begin{column}{0.42\textwidth}
+            \begin{tcolorbox}[colback=ugmLightGrey,colframe=ugmBlue,title=Design System]
+                \begin{itemize}
+                    \item \textbf{Colors:} Oklch-based tokens (primary teal, secondary coral)
+                    \item \textbf{Typography:} System font stack
+                    \item \textbf{Mobile:} 390$\times$844px frame
+                    \item \textbf{Spacing:} 4px scale system
+                    \item \textbf{Components:} Buttons, cards, chips, inputs, tab bars
+                \end{itemize}
+            \end{tcolorbox}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}
+    \frametitle{UI/UX --- Screen Inventory}
+
+    \begin{table}
+        \centering
+        \rowcolors{2}{ugmLightGrey}{white}
+        \begin{tabular}{lll}
+            \rowcolor{ugmBlue!40}
+            \textcolor{white}{\textbf{Role}} & \textcolor{white}{\textbf{Screen}} & \textcolor{white}{\textbf{Purpose}} \\
+            Student & Splash & Onboarding \& feature highlights \\
+            Student & Login & Phone/email auth with OTP \\
+            Student & Home & Services, orders, nearby laundry \\
+            Student & New Order & Service, weight, schedule, location \\
+            Student & Order Summary & Confirmation with timeline \\
+            Student & Payment & E-wallet/bank selection \\
+            Student & Tracking & Real-time map \& status \\
+            Student & Orders & History with filter tabs \\
+            Student & Shared Laundry & Roommate cost-splitting \\
+            Student & Spending & Monthly charts \& breakdown \\
+            Driver & Home & Active deliveries \& navigation \\
+            Partner & Dashboard & Order management \& analytics \\
+            Admin & Dashboard & System health \& user management \\
+        \end{tabular}
+    \end{table}
+\end{frame}
+
+% ==========================================
+\section{Phase 3: Software Development \& Implementation}
+% ==========================================
+
+\begin{frame}
+    \frametitle{Phase 3 --- Development \& Implementation}
+
+    \begin{columns}[T]
+        \begin{column}{0.55\textwidth}
+            \textbf{Tool:} GLM 5.1 via OpenCode Harness
+
+            \vspace{0.5em}
+            \textbf{Process:}
+            \begin{enumerate}
+                \item Analyzed HTML prototypes and SRS document
+                \item Set up Next.js 16 project with TypeScript, Tailwind CSS v4
+                \item Designed database schema (Prisma + SQLite)
+                \item Implemented 14 route pages translating mockups to React components
+                \item Created shared UI component library
+                \item Built server actions for auth and order management
+                \item Seeded database with realistic test data
+                \item Verified build and type-check passes
+            \end{enumerate}
+        \end{column}
+
+        \begin{column}{0.42\textwidth}
+            \begin{tcolorbox}[colback=cucigoTeal!10,colframe=cucigoTeal,title=Tech Stack]
+                \begin{itemize}
+                    \item \textbf{Framework:} Next.js 16 (App Router)
+                    \item \textbf{Language:} TypeScript
+                    \item \textbf{Styling:} Tailwind CSS v4
+                    \item \textbf{Database:} SQLite via Prisma 7
+                    \item \textbf{Auth:} Cookie-based sessions, bcryptjs
+                    \item \textbf{Design:} Oklch color tokens, mobile-first
+                \end{itemize}
+            \end{tcolorbox}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Database Schema}
+
+    \begin{columns}[T]
+        \begin{column}{0.48\textwidth}
+            \begin{tcolorbox}[colback=ugmLightGrey,colframe=ugmBlue,title=Core Models]
+                \begin{itemize}
+                    \item \textbf{User} --- id, name, email, phone, role, password
+                    \item \textbf{Address} --- id, userId, label, address, lat/lng
+                    \item \textbf{LaundryPartner} --- id, userId, name, rating, prices
+                    \item \textbf{PartnerPrice} --- id, partnerId, serviceType, pricePerKg
+                    \item \textbf{Order} --- id, orderCode, studentId, partnerId, driverId, serviceType, weight, status, totals
+                \end{itemize}
+            \end{tcolorbox}
+        \end{column}
+
+        \begin{column}{0.48\textwidth}
+            \begin{tcolorbox}[colback=ugmLightGrey,colframe=ugmBlue,title=Supporting Models]
+                \begin{itemize}
+                    \item \textbf{OrderStatusHistory} --- id, orderId, status, note, timestamp
+                    \item \textbf{SharedGroup} --- id, name, adminId
+                    \item \textbf{SharedGroupMember} --- id, groupId, userId, shareAmount, paymentStatus
+                    \item \textbf{SharedOrder} --- id, orderId, groupId, totalSplit
+                    \item \textbf{Notification} --- id, userId, orderId, title, message, type
+                    \item \textbf{AuditLog} --- id, userId, action, entity, details
+                    \item \textbf{PromoCode} --- id, code, discountPercent, maxUses
+                \end{itemize}
+            \end{tcolorbox}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Project Structure}
+
+    \begin{lstlisting}[language=bash, caption=Key Directory Layout]
+cucigo/
++-- prisma/
+|   +-- schema.prisma      # Database schema (11 models)
+|   +-- seed.ts            # Sample data seeding script
+|   +-- dev.db             # SQLite database
++-- src/
+|   +-- actions/auth.ts    # Server actions (login, order, status)
+|   +-- app/
+|   |   +-- page.tsx       # Splash/onboarding
+|   |   +-- auth/login/    # Authentication
+|   |   +-- student/       # 8 student routes
+|   |   +-- driver/home/   # Driver dashboard
+|   |   +-- partner/       # Partner dashboard
+|   |   +-- admin/         # Admin dashboard
+|   +-- components/
+|   |   +-- ui/            # Button, Card, Chip, Input, StatusDot
+|   |   +-- layout/        # MobileFrame, NavBar, TabBar
+|   +-- lib/
+|       +-- auth.ts        # Session management, password hashing
+|       +-- constants.ts   # Service types, order statuses, helpers
+|       +-- db.ts          # Prisma client singleton
+    \end{lstlisting}
+\end{frame}
+
+% ==========================================
+\section{Testing \& Quality Assurance}
+% ==========================================
+
+\begin{frame}
+    \frametitle{Testing \& Quality Assurance}
+
+    \begin{columns}[T]
+        \begin{column}{0.48\textwidth}
+            \begin{tcolorbox}[colback=ugmLightGrey,colframe=ugmBlue,title=Build \& Type Safety]
+                \begin{itemize}
+                    \item All 14 routes compile and build successfully
+                    \item TypeScript strict mode enabled
+                    \item Prisma generates type-safe database client
+                    \item Server actions provide type-safe mutations
+                    \item ESLint configuration from Next.js defaults
+                \end{itemize}
+            \end{tcolorbox}
+        \end{column}
+
+        \begin{column}{0.48\textwidth}
+            \begin{tcolorbox}[colback=ugmLightGrey,colframe=cucigoTeal,title=Verification Strategy (from SRS)]
+                \begin{itemize}
+                    \item \textbf{Unit Testing} --- Individual component testing
+                    \item \textbf{Integration Testing} --- Module and external service interfaces
+                    \item \textbf{System Testing} --- Full app against FR and QR
+                    \item \textbf{UAT} --- Representatives from each user class validate in production-like environment
+                \end{itemize}
+            \end{tcolorbox}
+        \end{column}
+    \end{columns}
+
+    \vspace{0.5em}
+    \begin{tcolorbox}[colback=cucigoCoral!10,colframe=cucigoCoral,title=Quality Requirements Highlights]
+        \begin{itemize}
+            \item QR-1: Response time under 3 seconds
+            \item QR-6: Encrypted passwords and OTP verification
+            \item QR-11: 99.5\% uptime during 06:00--22:00 WIB
+            \item CR-1: Compliance with Indonesian PDP Law
+        \end{itemize}
+    \end{tcolorbox}
+\end{frame}
+
+\begin{frame}
+    \frametitle{SRS Verification Traceability}
+
+    \begin{table}
+        \centering
+        \rowcolors{2}{ugmLightGrey}{white}
+        \begin{tabular}{lll}
+            \rowcolor{ugmBlue!40}
+            \textcolor{white}{\textbf{Requirement}} & \textcolor{white}{\textbf{Method}} & \textcolor{white}{\textbf{Acceptance}} \\
+            FR-1 to FR-5 & Unit \& integration & Login/profile works \\
+            FR-6 to FR-10 & System testing, UAT & Orders with correct pricing \\
+            FR-11 to FR-14 & System testing, UAT & Real-time status updates \\
+            FR-15 to FR-18 & System \& field testing & GPS accuracy $<10$m \\
+            FR-19 to FR-23 & Integration with payment providers & Transactions recorded \\
+            FR-24 to FR-26 & System testing, UAT & Shared laundry \& reminders \\
+            FR-27 to FR-30 & System testing, UAT & Admin dashboard correct data \\
+        \end{tabular}
+    \end{table}
+\end{frame}
+
+% ==========================================
+\section{Demo \& Results}
+% ==========================================
+
+\ugmcenteredlogoslide
+\begin{frame}
+    \frametitle{Application Demo}
+\end{frame}
+
+\ugmnormalslide
+\begin{frame}
+    \frametitle{Application Routes Overview}
+
+    \begin{columns}[T]
+        \begin{column}{0.48\textwidth}
+            \begin{tcolorbox}[colback=cucigoTeal!10,colframe=cucigoTeal,title=Student Routes]
+                \begin{itemize}
+                    \item \texttt{/} --- Splash / Onboarding
+                    \item \texttt{/auth/login} --- Authentication
+                    \item \texttt{/student/home} --- Dashboard
+                    \item \texttt{/student/order} --- New order flow
+                    \item \texttt{/student/order/[id]/summary} --- Order summary
+                    \item \texttt{/student/order/[id]/payment} --- Payment
+                    \item \texttt{/student/orders} --- Order history
+                    \item \texttt{/student/orders/[id]/tracking} --- Live tracking
+                \end{itemize}
+            \end{tcolorbox}
+        \end{column}
+
+        \begin{column}{0.48\textwidth}
+            \begin{tcolorbox}[colback=cucigoTeal!10,colframe=cucigoTeal,title=Student Routes (cont.)]
+                \begin{itemize}
+                    \item \texttt{/student/shared} --- Shared laundry groups
+                    \item \texttt{/student/spending} --- Spending tracker
+                \end{itemize}
+            \end{tcolorbox}
+
+            \vspace{0.5em}
+
+            \begin{tcolorbox}[colback=ugmBlue!10,colframe=ugmBlue,title=Other Roles]
+                \begin{itemize}
+                    \item \texttt{/driver/home} --- Driver dashboard
+                    \item \texttt{/partner/dashboard} --- Partner dashboard
+                    \item \texttt{/admin/dashboard} --- Admin panel
+                \end{itemize}
+            \end{tcolorbox}
+
+            \vspace{0.5em}
+
+            \begin{tcolorbox}[colback=cucigoCoral!10,colframe=cucigoCoral,title=Seed Credentials]
+                \begin{itemize}
+                    \item Student: \texttt{rizki@student.ugm.ac.id}
+                    \item Partner: \texttt{bunda@laundry.id}
+                    \item Driver: \texttt{budi@cucigo.id}
+                    \item Admin: \texttt{admin@cucigo.id}
+                    \item All passwords: \texttt{password123}
+                \end{itemize}
+            \end{tcolorbox}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% ==========================================
+\section{AI Tools Comparison}
+% ==========================================
+
+\begin{frame}
+    \frametitle{AI Tools Comparison}
+
+    \begin{table}
+        \centering
+        \rowcolors{2}{ugmLightGrey}{white}
+        \begin{tabular}{lccc}
+            \rowcolor{ugmBlue!40}
+            \textcolor{white}{\textbf{Aspect}} & \textcolor{white}{\textbf{Kimi K2.6}} & \textcolor{white}{\textbf{OpenDesign + Kimi}} & \textcolor{white}{\textbf{GLM 5.1 + OpenCode}} \\
+            \textbf{Phase} & Ideation & UI/UX Design & Development \\
+            \textbf{Task} & SRS creation & Visual prototyping & Code implementation \\
+            \textbf{Output} & Requirements doc & 13 HTML screens & Next.js app \\
+            \textbf{Human Role} & Prompt, review & Guide, iterate & Architect, verify \\
+            \textbf{Strength} & Long-context reasoning & Rapid visual design & Multi-file code gen \\
+            \textbf{Limitation} & No code execution & Static prototypes & Needs architectural guidance \\
+        \end{tabular}
+    \end{table}
+
+    \vspace{0.5em}
+    \begin{tcolorbox}[colback=ugmLightGrey,colframe=ugmBlue,title=Key Insight]
+        Each AI tool was leveraged for its \textbf{comparative advantage}. Kimi excels at long-document generation and structured reasoning. OpenDesign provides rapid visual iteration. GLM 5.1 with OpenCode's agentic harness enables multi-file code generation with tool use capabilities (file read/write, shell commands, search).
+    \end{tcolorbox}
+\end{frame}
+
+% ==========================================
+\section{Lessons Learned}
+% ==========================================
+
+\begin{frame}
+    \frametitle{Lessons Learned}
+
+    \begin{columns}[T]
+        \begin{column}{0.48\textwidth}
+            \begin{tcolorbox}[colback=green!5,colframe=green!60!black,title=What Worked Well]
+                \begin{itemize}
+                    \item AI-assisted ideation rapidly produced a comprehensive SRS document following IEEE 830 standards
+                    \item HTML prototypes enabled \textbf{visual stakeholder feedback} before writing any code
+                    \item OpenCode's agentic harness allowed parallel file creation, dramatically reducing development time
+                    \item Existing design tokens (CSS custom properties) translated cleanly to Tailwind CSS v4 theme variables
+                    \item Prisma's type-safe client caught schema errors at compile time
+                \end{itemize}
+            \end{tcolorbox}
+        \end{column}
+
+        \begin{column}{0.48\textwidth}
+            \begin{tcolorbox}[colback=red!5,colframe=red!70!black,title=Challenges]
+                \begin{itemize}
+                    \item Prisma v7 required driver adapters (breaking change from v6 patterns) --- required resolving import paths and API changes
+                    \item AI-generated code needed \textbf{architectural review}: the agent sometimes chose suboptimal patterns that required manual correction
+                    \item Tailwind CSS v4 uses a different configuration approach (\texttt{@theme inline}) than v3's \texttt{tailwind.config.js}
+                    \item Mobile-first design requires careful responsive testing across viewports
+                    \item Real-time features (GPS, push notifications) need actual backend services beyond the current prototype
+                \end{itemize}
+            \end{tcolorbox}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% ==========================================
+\section{Conclusion \& Future Work}
+% ==========================================
+
+\begin{frame}
+    \frametitle{Conclusion \& Future Work}
+
+    \begin{tcolorbox}[colback=ugmLightGrey,colframe=ugmBlue,title=Summary]
+        \begin{itemize}
+            \item Successfully implemented a \textbf{full-stack CuciGo web application} covering all 4 user roles
+            \item \textbf{14 routes} translating 13 HTML prototypes into functional React pages
+            \item \textbf{11 database models} with seed data for testing
+            \item Demonstrated a \textbf{three-phase AI-assisted SE process} using Kimi K2.6, OpenDesign, and GLM 5.1
+            \item All pages pass \textbf{TypeScript strict mode} and \textbf{Next.js build verification}
+        \end{itemize}
+    \end{tcolorbox}
+
+    \vspace{0.5em}
+
+    \begin{tcolorbox}[colback=cucigoTeal!10,colframe=cucigoTeal,title=Future Work]
+        \begin{itemize}
+            \item \textbf{Phase 2 features:} Spending tracker analytics, shared laundry ordering flow
+            \item \textbf{Real-time integration:} WebSocket-based tracking, push notifications (FCM/APNS)
+            \item \textbf{Payment gateway:} Midtrans/Xendit integration for real e-wallet \& bank transfer
+            \item \textbf{Testing:} Unit tests (Jest), integration tests (Playwright), UAT
+            \item \textbf{Deployment:} Docker containerization, CI/CD pipeline
+            \item \textbf{Mobile:} React Native or Capacitor wrapper for app store distribution
+        \end{itemize}
+    \end{tcolorbox}
+\end{frame}
+
+\begin{frame}
+    \frametitle{References}
+
+    \begin{thebibliography}{9}
+        \bibitem{ieee830} IEEE Standard 830-1998, \textit{IEEE Recommended Practice for Software Requirements Specifications}, IEEE, 1998.
+
+        \bibitem{iso29148} ISO/IEC/IEEE 29148:2018, \textit{Systems and software engineering --- Life cycle processes --- Requirements engineering}, ISO, 2018.
+
+        \bibitem{nextjs} Vercel, \textit{Next.js Documentation}, \url{https://nextjs.org/docs}, 2026.
+
+        \bibitem{prisma} Prisma, \textit{Prisma Documentation}, \url{https://www.prisma.io/docs}, 2026.
+
+        \bibitem{tailwind} Tailwind Labs, \textit{Tailwind CSS v4 Documentation}, \url{https://tailwindcss.com/docs}, 2026.
+
+        \bibitem{kimi} Moonshot AI, \textit{Kimi K2.6}, \url{https://kimi.moonshot.cn}, 2026.
+
+        \bibitem{glm} Z.ai, \textit{GLM 5.1}, \textit{OpenCode Agentic Harness}, 2026.
+
+        \bibitem{opendesign} OpenDesign, \textit{Open-source UI/UX Design Tool}, 2026.
+    \end{thebibliography}
+\end{frame}
+
+\begin{frame}[plain]
+    \titlepage
+\end{frame}
+
+\end{document}

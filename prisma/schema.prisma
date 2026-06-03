@@ -1,0 +1,214 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model User {
+  id           String   @id @default(cuid())
+  name         String
+  email        String?  @unique
+  phone        String?  @unique
+  passwordHash String?
+  role         String   @default("STUDENT")
+  avatar       String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  addresses       Address[]
+  studentOrders   Order[]              @relation("StudentOrders")
+  driverOrders    Order[]              @relation("DriverOrders")
+  partnerProfile  LaundryPartner?
+  adminActivity   AuditLog[]
+  sentNotifications Notification[]     @relation("SentTo")
+  sharedGroupAdmin SharedGroup[]       @relation("GroupAdmin")
+  sharedGroupMembers SharedGroupMember[]
+
+  @@index([email])
+  @@index([phone])
+  @@index([role])
+}
+
+model Address {
+  id        String  @id @default(cuid())
+  userId    String
+  label     String
+  address   String
+  latitude  Float?
+  longitude Float?
+  isDefault Boolean @default(false)
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
+model LaundryPartner {
+  id          String  @id @default(cuid())
+  userId      String  @unique
+  name        String
+  description String?
+  address     String
+  latitude    Float?
+  longitude   Float?
+  rating      Float   @default(0)
+  reviewCount Int     @default(0)
+  openUntil   String  @default("22:00")
+  isActive    Boolean @default(true)
+
+  prices    PartnerPrice[]
+  orders    Order[]          @relation("PartnerOrders")
+  user      User              @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
+model PartnerPrice {
+  id         String  @id @default(cuid())
+  partnerId  String
+  serviceType String
+  pricePerKg Int
+  durationDays Int
+
+  partner LaundryPartner @relation(fields: [partnerId], references: [id], onDelete: Cascade)
+
+  @@index([partnerId])
+}
+
+model Order {
+  id              String   @id @default(cuid())
+  orderCode       String   @unique
+  studentId       String
+  partnerId       String
+  driverId        String?
+  serviceType     String
+  weightKg         Int
+  pickupAddress   String
+  pickupLatitude  Float?
+  pickupLongitude Float?
+  pickupDate      String
+  pickupTime      String
+  deliveryDate    String?
+  status          String   @default("ORDERED")
+  subtotal        Int
+  deliveryFee     Int
+  discountAmount  Int      @default(0)
+  promoCode       String?
+  totalAmount     Int
+  paymentMethod   String?
+  paymentStatus   String   @default("PENDING")
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  student       User              @relation("StudentOrders", fields: [studentId], references: [id])
+  partner       LaundryPartner    @relation("PartnerOrders", fields: [partnerId], references: [id])
+  driver        User?             @relation("DriverOrders", fields: [driverId], references: [id])
+  statusHistory OrderStatusHistory[]
+  notifications  Notification[]  @relation("OrderNotifications")
+  sharedOrder   SharedOrder?
+
+  @@index([studentId])
+  @@index([partnerId])
+  @@index([driverId])
+  @@index([status])
+  @@index([createdAt])
+}
+
+model OrderStatusHistory {
+  id        String   @id @default(cuid())
+  orderId   String
+  status    String
+  note      String?
+  createdAt DateTime @default(now())
+
+  order Order @relation(fields: [orderId], references: [id], onDelete: Cascade)
+
+  @@index([orderId])
+}
+
+model SharedGroup {
+  id        String   @id @default(cuid())
+  name      String
+  adminId   String
+  createdAt DateTime @default(now())
+
+  admin        User                @relation("GroupAdmin", fields: [adminId], references: [id])
+  members      SharedGroupMember[]
+  sharedOrders SharedOrder[]
+
+  @@index([adminId])
+}
+
+model SharedGroupMember {
+  id          String  @id @default(cuid())
+  groupId     String
+  userId      String
+  shareAmount Int     @default(0)
+  paymentStatus String @default("PENDING")
+
+  group SharedGroup @relation(fields: [groupId], references: [id], onDelete: Cascade)
+  user  User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([groupId])
+  @@index([userId])
+}
+
+model SharedOrder {
+  id        String   @id @default(cuid())
+  orderId   String   @unique
+  groupId   String
+  totalSplit Int
+  createdAt DateTime @default(now())
+
+  order Order @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  group SharedGroup @relation(fields: [groupId], references: [id], onDelete: Cascade)
+
+  @@index([orderId])
+  @@index([groupId])
+}
+
+model Notification {
+  id        String   @id @default(cuid())
+  userId    String
+  orderId   String?
+  title     String
+  message   String
+  type      String
+  isRead    Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  user  User   @relation("SentTo", fields: [userId], references: [id], onDelete: Cascade)
+  order Order? @relation("OrderNotifications", fields: [orderId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([createdAt])
+}
+
+model AuditLog {
+  id        String   @id @default(cuid())
+  userId    String
+  action    String
+  entity    String?
+  entityId  String?
+  details   String?
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id])
+
+  @@index([userId])
+  @@index([createdAt])
+}
+
+model PromoCode {
+  id         String   @id @default(cuid())
+  code       String   @unique
+  discountPercent Int
+  maxUses     Int
+  usedCount   Int      @default(0)
+  isActive    Boolean  @default(true)
+  expiresAt   DateTime?
+  createdAt   DateTime @default(now())
+}
