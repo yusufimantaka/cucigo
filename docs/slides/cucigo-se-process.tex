@@ -1,4 +1,4 @@
-\documentclass[aspectratio=169,professionalfonts]{beamer}
+\documentclass[aspectratio=169,professionalfonts,10pt]{beamer}
 
 % ----- THEME AND PACKAGES -----
 \usetheme{UGM}
@@ -12,7 +12,7 @@
   keywordstyle=\color{ugmBlue},
   numberstyle=\tiny\color{codegray},
   stringstyle=\color{codepurple},
-  basicstyle=\ttfamily\footnotesize,
+  basicstyle=\ttfamily\scriptsize,
   breakatwhitespace=false,
   breaklines=true,
   captionpos=b,
@@ -60,35 +60,36 @@
 
 \begin{frame}
     \frametitle{What is CuciGo?}
-
+    \small
     \textbf{CuciGo} is a mobile-first laundry pickup and delivery marketplace connecting three user groups:
 
     \begin{columns}[T]
         \begin{column}{0.32\textwidth}
-            \begin{tcolorbox}[colback=cucigoTeal!10,colframe=cucigoTeal,title=\centering Students]
-                \centering
+            \begin{tcolorbox}[colback=cucigoTeal!10,colframe=cucigoTeal,title=\centering\small Students]
+                \scriptsize
                 Browse services, place orders, track laundry, manage payments
             \end{tcolorbox}
         \end{column}
 
         \begin{column}{0.32\textwidth}
-            \begin{tcolorbox}[colback=ugmBlue!10,colframe=ugmBlue,title=\centering Partners]
-                \centering
+            \begin{tcolorbox}[colback=ugmBlue!10,colframe=ugmBlue,title=\centering\small Partners]
+                \scriptsize
                 Manage incoming orders, update status, set pricing
             \end{tcolorbox}
         \end{column}
 
         \begin{column}{0.32\textwidth}
-            \begin{tcolorbox}[colback=cucigoCoral!10,colframe=cucigoCoral,title=\centering Drivers]
-                \centering
+            \begin{tcolorbox}[colback=cucigoCoral!10,colframe=cucigoCoral,title=\centering\small Drivers]
+                \scriptsize
                 Navigate routes, confirm pickups, update delivery status
             \end{tcolorbox}
         \end{column}
     \end{columns}
 
-    \vspace{1em}
-    \begin{tcolorbox}[colback=ugmLightGrey,colframe=ugmBlue,title=Key Facts]
-        \begin{itemize}
+    \vspace{0.5em}
+    \begin{tcolorbox}[colback=ugmLightGrey,colframe=ugmBlue,title=\small Key Facts]
+        \scriptsize
+        \begin{itemize}\setlength{\itemsep}{1pt}
             \item 30 functional requirements (FR-1 to FR-30)
             \item 4 user roles: Student, Partner, Driver, Admin
             \item Tech stack: Next.js, TypeScript, Tailwind CSS, Prisma + SQLite
@@ -102,26 +103,26 @@
 
 \begin{frame}
     \frametitle{Three-Phase AI-Assisted SE Process}
-
+    \small
     Our project followed a \textbf{three-phase software engineering process}, each phase leveraging a different AI tool:
 
-    \vspace{0.5em}
-
+    \vspace{0.3em}
     \begin{tikzpicture}[
-        node distance=1.5cm and 2.5cm,
-        phase/.style={draw, fill=ugmLightGrey, rounded corners, minimum width=4.2cm, minimum height=2.5cm, align=center, font=\small},
+        node distance=0.8cm and 1.4cm,
+        phase/.style={draw, fill=ugmLightGrey, rounded corners, minimum width=3.8cm, minimum height=1.8cm, align=center, font=\scriptsize},
         arrow/.style={->, thick, ugmBlue}
     ]
-        \node[phase] (p1) {\textbf{Phase 1}\\Ideation \& SRS\\[0.3em]\textcolor{ugmBlue}{Kimi K2.6}\\Moonshot AI};
-        \node[phase, right=2cm of p1] (p2) {\textbf{Phase 2}\\UI/UX Design\\[0.3em]\textcolor{ugmBlue}{OpenDesign + Kimi K2.6}\\Open-source tool};
-        \node[phase, right=2cm of p2] (p3) {\textbf{Phase 3}\\Dev, Impl \& Testing\\[0.3em]\textcolor{ugmBlue}{GLM 5.1 + OpenCode}\\Z.ai};
+        \node[phase] (p1) {\textbf{Phase 1}\\Ideation \& SRS\\[0.2em]\textcolor{ugmBlue}{Kimi K2.6}\\Moonshot AI};
+        \node[phase, right=1.2cm of p1] (p2) {\textbf{Phase 2}\\UI/UX Design\\[0.2em]\textcolor{ugmBlue}{OpenDesign + Kimi K2.6}\\Open-source tool};
+        \node[phase, right=1.2cm of p2] (p3) {\textbf{Phase 3}\\Dev, Impl \& Testing\\[0.2em]\textcolor{ugmBlue}{GLM 5.1 + OpenCode}\\Z.ai};
         \draw[arrow] (p1) -- (p2);
         \draw[arrow] (p2) -- (p3);
     \end{tikzpicture}
 
-    \vspace{1em}
-    \begin{tcolorbox}[colback=cucigoTeal!10,colframe=cucigoTeal,title=Why AI-Assisted?]
-        Each AI model was chosen for its strengths: Kimi for research and documentation, OpenDesign for visual prototyping, and GLM 5.1 for code generation with the OpenCode agentic harness.
+    \vspace{0.5em}
+    \begin{tcolorbox}[colback=cucigoTeal!10,colframe=cucigoTeal,title=\small Why AI-Assisted?]
+        \scriptsize
+        Each AI model was chosen for its strengths: Kimi for research and documentation, OpenDesign for visual prototyping, and GLM~5.1 for code generation with the OpenCode agentic harness.
     \end{tcolorbox}
 \end{frame}
 
@@ -131,14 +132,14 @@
 
 \begin{frame}
     \frametitle{Phase 1 --- Ideation \& SRS Creation}
-
+    \small
     \begin{columns}[T]
         \begin{column}{0.55\textwidth}
             \textbf{Tool:} Kimi K2.6 (Moonshot AI)
 
-            \vspace{0.5em}
+            \vspace{0.3em}
             \textbf{Process:}
-            \begin{enumerate}
+            \begin{enumerate}\setlength{\itemsep}{1pt}
                 \item Problem identification --- laundry pain points for Anak Kos
                 \item Feature brainstorming with multi-turn dialogue
                 \item Requirement elicitation following IEEE 830 structure
@@ -148,8 +149,9 @@
         \end{column}
 
         \begin{column}{0.42\textwidth}
-            \begin{tcolorbox}[colback=ugmLightGrey,colframe=ugmBlue,title=SRS Outputs]
-                \begin{itemize}
+            \begin{tcolorbox}[colback=ugmLightGrey,colframe=ugmBlue,title=\small SRS Outputs]
+                \scriptsize
+                \begin{itemize}\setlength{\itemsep}{1pt}
                     \item 30 functional requirements (FR-1 to FR-30)
                     \item 17 quality requirements (QR-1 to QR-17)
                     \item 4 compliance requirements (CR-1 to CR-4)
@@ -164,9 +166,9 @@
 
 \begin{frame}
     \frametitle{SRS --- Functional Requirements Overview}
-
+    \small
     \begin{table}
-        \centering
+        \centering\scriptsize
         \rowcolors{2}{ugmLightGrey}{white}
         \begin{tabular}{lll}
             \rowcolor{ugmBlue!40}
@@ -184,22 +186,22 @@
 
 \begin{frame}
     \frametitle{SRS --- System Architecture}
-
+    \small
     \begin{tikzpicture}[
-        node distance=1.2cm,
-        box/.style={draw, fill=ugmLightGrey, rounded corners, minimum width=3cm, minimum height=1cm, align=center, font=\small},
-        extbox/.style={draw, fill=cucigoTeal!10, rounded corners, minimum width=2.8cm, minimum height=0.8cm, align=center, font=\scriptsize},
+        node distance=0.9cm,
+        box/.style={draw, fill=ugmLightGrey, rounded corners, minimum width=2.6cm, minimum height=0.8cm, align=center, font=\scriptsize},
+        extbox/.style={draw, fill=cucigoTeal!10, rounded corners, minimum width=2.4cm, minimum height=0.6cm, align=center, font=\tiny},
         arrow/.style={->, thick}
     ]
         \node[box, fill=cucigoCoral!15] (student) {Students\\(Mobile App)};
-        \node[box, fill=ugmBlue!10, right=2cm of student] (partner) {Partners\\(Dashboard)};
-        \node[box, fill=cucigoTeal!15, right=2cm of partner] (driver) {Drivers\\(Mobile App)};
+        \node[box, fill=ugmBlue!10, right=1.4cm of student] (partner) {Partners\\(Dashboard)};
+        \node[box, fill=cucigoTeal!15, right=1.4cm of partner] (driver) {Drivers\\(Mobile App)};
 
-        \node[box, fill=ugmBlue!30, text=white, below=1.5cm of partner] (core) {\textbf{Core Services}\\Ordering, Tracking, GPS,\\Payment, Notifications};
+        \node[box, fill=ugmBlue!30, text=white, below=1cm of partner] (core) {\textbf{Core Services}\\Ordering, Tracking, GPS,\\Payment, Notifications};
 
-        \node[box, fill=ugmBlue!20, below=1.2cm of core] (infra) {\textbf{Backend Infrastructure}\\API Gateway, Auth, Database, Analytics};
+        \node[box, fill=ugmBlue!20, below=0.9cm of core] (infra) {\textbf{Backend Infra}\\API Gateway, Auth, Database, Analytics};
 
-        \node[extbox, below=1.2cm of infra] (ext) {Map APIs $\cdot$ Payment Gateways $\cdot$ Push Notifications};
+        \node[extbox, below=0.9cm of infra] (ext) {Map APIs $\cdot$ Payment Gateways $\cdot$ Push Notifications};
 
         \draw[arrow] (student) -- (core);
         \draw[arrow] (partner) -- (core);
@@ -215,18 +217,18 @@
 
 \begin{frame}
     \frametitle{Phase 2 --- UI/UX Design}
-
+    \small
     \begin{columns}[T]
         \begin{column}{0.55\textwidth}
             \textbf{Tool:} OpenDesign (open-source) + Kimi K2.6
 
-            \vspace{0.5em}
+            \vspace{0.3em}
             \textbf{Process:}
-            \begin{enumerate}
+            \begin{enumerate}\setlength{\itemsep}{1pt}
                 \item Defined design tokens from initial mood boarding
                 \item Created CSS custom properties (oklch color system)
                 \item Generated 13 HTML screen prototypes:
-                \begin{itemize}
+                \begin{itemize}\scriptsize
                     \item 10 student screens
                     \item 1 driver screen
                     \item 1 partner screen
@@ -237,8 +239,9 @@
         \end{column}
 
         \begin{column}{0.42\textwidth}
-            \begin{tcolorbox}[colback=ugmLightGrey,colframe=ugmBlue,title=Design System]
-                \begin{itemize}
+            \begin{tcolorbox}[colback=ugmLightGrey,colframe=ugmBlue,title=\small Design System]
+                \scriptsize
+                \begin{itemize}\setlength{\itemsep}{1pt}
                     \item \textbf{Colors:} Oklch-based tokens (primary teal, secondary coral)
                     \item \textbf{Typography:} System font stack
                     \item \textbf{Mobile:} 390$\times$844px frame
@@ -252,7 +255,7 @@
 
 \begin{frame}
     \frametitle{UI/UX --- Screen Inventory}
-
+    \scriptsize
     \begin{table}
         \centering
         \rowcolors{2}{ugmLightGrey}{white}
@@ -282,14 +285,14 @@
 
 \begin{frame}
     \frametitle{Phase 3 --- Development \& Implementation}
-
+    \small
     \begin{columns}[T]
         \begin{column}{0.55\textwidth}
             \textbf{Tool:} GLM 5.1 via OpenCode Harness
 
-            \vspace{0.5em}
+            \vspace{0.3em}
             \textbf{Process:}
-            \begin{enumerate}
+            \begin{enumerate}\setlength{\itemsep}{1pt}
                 \item Analyzed HTML prototypes and SRS document
                 \item Set up Next.js 16 project with TypeScript, Tailwind CSS v4
                 \item Designed database schema (Prisma + SQLite)
@@ -302,8 +305,9 @@
         \end{column}
 
         \begin{column}{0.42\textwidth}
-            \begin{tcolorbox}[colback=cucigoTeal!10,colframe=cucigoTeal,title=Tech Stack]
-                \begin{itemize}
+            \begin{tcolorbox}[colback=cucigoTeal!10,colframe=cucigoTeal,title=\small Tech Stack]
+                \scriptsize
+                \begin{itemize}\setlength{\itemsep}{1pt}
                     \item \textbf{Framework:} Next.js 16 (App Router)
                     \item \textbf{Language:} TypeScript
                     \item \textbf{Styling:} Tailwind CSS v4
@@ -318,11 +322,11 @@
 
 \begin{frame}
     \frametitle{Database Schema}
-
+    \scriptsize
     \begin{columns}[T]
         \begin{column}{0.48\textwidth}
-            \begin{tcolorbox}[colback=ugmLightGrey,colframe=ugmBlue,title=Core Models]
-                \begin{itemize}
+            \begin{tcolorbox}[colback=ugmLightGrey,colframe=ugmBlue,title=\small Core Models]
+                \begin{itemize}\setlength{\itemsep}{0pt}
                     \item \textbf{User} --- id, name, email, phone, role, password
                     \item \textbf{Address} --- id, userId, label, address, lat/lng
                     \item \textbf{LaundryPartner} --- id, userId, name, rating, prices
@@ -333,15 +337,15 @@
         \end{column}
 
         \begin{column}{0.48\textwidth}
-            \begin{tcolorbox}[colback=ugmLightGrey,colframe=ugmBlue,title=Supporting Models]
-                \begin{itemize}
+            \begin{tcolorbox}[colback=ugmLightGrey,colframe=ugmBlue,title=\small Supporting Models]
+                \begin{itemize}\setlength{\itemsep}{0pt}
                     \item \textbf{OrderStatusHistory} --- id, orderId, status, note, timestamp
                     \item \textbf{SharedGroup} --- id, name, adminId
-                    \item \textbf{SharedGroupMember} --- id, groupId, userId, shareAmount, paymentStatus
-                    \item \textbf{SharedOrder} --- id, orderId, groupId, totalSplit
-                    \item \textbf{Notification} --- id, userId, orderId, title, message, type
-                    \item \textbf{AuditLog} --- id, userId, action, entity, details
-                    \item \textbf{PromoCode} --- id, code, discountPercent, maxUses
+                    \item \textbf{SharedGroupMember} --- groupId, userId, shareAmount, paymentStatus
+                    \item \textbf{SharedOrder} --- orderId, groupId, totalSplit
+                    \item \textbf{Notification} --- userId, orderId, title, message, type
+                    \item \textbf{AuditLog} --- userId, action, entity, details
+                    \item \textbf{PromoCode} --- code, discountPercent, maxUses
                 \end{itemize}
             \end{tcolorbox}
         \end{column}
@@ -351,7 +355,7 @@
 \begin{frame}[fragile]
     \frametitle{Project Structure}
 
-    \begin{lstlisting}[language=bash, caption=Key Directory Layout]
+    \begin{lstlisting}[language=bash, caption=\scriptsize Key Directory Layout]
 cucigo/
 +-- prisma/
 |   +-- schema.prisma      # Database schema (11 models)
@@ -382,11 +386,12 @@ cucigo/
 
 \begin{frame}
     \frametitle{Testing \& Quality Assurance}
-
+    \small
     \begin{columns}[T]
         \begin{column}{0.48\textwidth}
-            \begin{tcolorbox}[colback=ugmLightGrey,colframe=ugmBlue,title=Build \& Type Safety]
-                \begin{itemize}
+            \begin{tcolorbox}[colback=ugmLightGrey,colframe=ugmBlue,title=\small Build \& Type Safety]
+                \scriptsize
+                \begin{itemize}\setlength{\itemsep}{1pt}
                     \item All 14 routes compile and build successfully
                     \item TypeScript strict mode enabled
                     \item Prisma generates type-safe database client
@@ -397,8 +402,9 @@ cucigo/
         \end{column}
 
         \begin{column}{0.48\textwidth}
-            \begin{tcolorbox}[colback=ugmLightGrey,colframe=cucigoTeal,title=Verification Strategy (from SRS)]
-                \begin{itemize}
+            \begin{tcolorbox}[colback=ugmLightGrey,colframe=cucigoTeal,title=\small Verification Strategy (from SRS)]
+                \scriptsize
+                \begin{itemize}\setlength{\itemsep}{1pt}
                     \item \textbf{Unit Testing} --- Individual component testing
                     \item \textbf{Integration Testing} --- Module and external service interfaces
                     \item \textbf{System Testing} --- Full app against FR and QR
@@ -408,22 +414,21 @@ cucigo/
         \end{column}
     \end{columns}
 
-    \vspace{0.5em}
-    \begin{tcolorbox}[colback=cucigoCoral!10,colframe=cucigoCoral,title=Quality Requirements Highlights]
-        \begin{itemize}
-            \item QR-1: Response time under 3 seconds
-            \item QR-6: Encrypted passwords and OTP verification
-            \item QR-11: 99.5\% uptime during 06:00--22:00 WIB
-            \item CR-1: Compliance with Indonesian PDP Law
+    \vspace{0.3em}
+    \begin{tcolorbox}[colback=cucigoCoral!10,colframe=cucigoCoral,title=\small Quality Requirements Highlights]
+        \scriptsize
+        \begin{itemize}\setlength{\itemsep}{1pt}
+            \item QR-1: Response time under 3 seconds \quad QR-6: Encrypted passwords and OTP verification
+            \item QR-11: 99.5\% uptime during 06:00--22:00 WIB \quad CR-1: Compliance with Indonesian PDP Law
         \end{itemize}
     \end{tcolorbox}
 \end{frame}
 
 \begin{frame}
     \frametitle{SRS Verification Traceability}
-
+    \small
     \begin{table}
-        \centering
+        \centering\scriptsize
         \rowcolors{2}{ugmLightGrey}{white}
         \begin{tabular}{lll}
             \rowcolor{ugmBlue!40}
@@ -431,7 +436,7 @@ cucigo/
             FR-1 to FR-5 & Unit \& integration & Login/profile works \\
             FR-6 to FR-10 & System testing, UAT & Orders with correct pricing \\
             FR-11 to FR-14 & System testing, UAT & Real-time status updates \\
-            FR-15 to FR-18 & System \& field testing & GPS accuracy $<10$m \\
+            FR-15 to FR-18 & System \& field testing & GPS accuracy $<10$\,m \\
             FR-19 to FR-23 & Integration with payment providers & Transactions recorded \\
             FR-24 to FR-26 & System testing, UAT & Shared laundry \& reminders \\
             FR-27 to FR-30 & System testing, UAT & Admin dashboard correct data \\
@@ -451,11 +456,11 @@ cucigo/
 \ugmnormalslide
 \begin{frame}
     \frametitle{Application Routes Overview}
-
+    \scriptsize
     \begin{columns}[T]
         \begin{column}{0.48\textwidth}
-            \begin{tcolorbox}[colback=cucigoTeal!10,colframe=cucigoTeal,title=Student Routes]
-                \begin{itemize}
+            \begin{tcolorbox}[colback=cucigoTeal!10,colframe=cucigoTeal,title=\small Student Routes]
+                \begin{itemize}\setlength{\itemsep}{0pt}
                     \item \texttt{/} --- Splash / Onboarding
                     \item \texttt{/auth/login} --- Authentication
                     \item \texttt{/student/home} --- Dashboard
@@ -469,27 +474,27 @@ cucigo/
         \end{column}
 
         \begin{column}{0.48\textwidth}
-            \begin{tcolorbox}[colback=cucigoTeal!10,colframe=cucigoTeal,title=Student Routes (cont.)]
-                \begin{itemize}
+            \begin{tcolorbox}[colback=cucigoTeal!10,colframe=cucigoTeal,title=\small Student Routes (cont.)]
+                \begin{itemize}\setlength{\itemsep}{0pt}
                     \item \texttt{/student/shared} --- Shared laundry groups
                     \item \texttt{/student/spending} --- Spending tracker
                 \end{itemize}
             \end{tcolorbox}
 
-            \vspace{0.5em}
+            \vspace{0.3em}
 
-            \begin{tcolorbox}[colback=ugmBlue!10,colframe=ugmBlue,title=Other Roles]
-                \begin{itemize}
+            \begin{tcolorbox}[colback=ugmBlue!10,colframe=ugmBlue,title=\small Other Roles]
+                \begin{itemize}\setlength{\itemsep}{0pt}
                     \item \texttt{/driver/home} --- Driver dashboard
                     \item \texttt{/partner/dashboard} --- Partner dashboard
                     \item \texttt{/admin/dashboard} --- Admin panel
                 \end{itemize}
             \end{tcolorbox}
 
-            \vspace{0.5em}
+            \vspace{0.3em}
 
-            \begin{tcolorbox}[colback=cucigoCoral!10,colframe=cucigoCoral,title=Seed Credentials]
-                \begin{itemize}
+            \begin{tcolorbox}[colback=cucigoCoral!10,colframe=cucigoCoral,title=\small Seed Credentials]
+                \begin{itemize}\setlength{\itemsep}{0pt}
                     \item Student: \texttt{rizki@student.ugm.ac.id}
                     \item Partner: \texttt{bunda@laundry.id}
                     \item Driver: \texttt{budi@cucigo.id}
@@ -507,9 +512,9 @@ cucigo/
 
 \begin{frame}
     \frametitle{AI Tools Comparison}
-
+    \small
     \begin{table}
-        \centering
+        \centering\scriptsize
         \rowcolors{2}{ugmLightGrey}{white}
         \begin{tabular}{lccc}
             \rowcolor{ugmBlue!40}
@@ -523,9 +528,10 @@ cucigo/
         \end{tabular}
     \end{table}
 
-    \vspace{0.5em}
-    \begin{tcolorbox}[colback=ugmLightGrey,colframe=ugmBlue,title=Key Insight]
-        Each AI tool was leveraged for its \textbf{comparative advantage}. Kimi excels at long-document generation and structured reasoning. OpenDesign provides rapid visual iteration. GLM 5.1 with OpenCode's agentic harness enables multi-file code generation with tool use capabilities (file read/write, shell commands, search).
+    \vspace{0.3em}
+    \begin{tcolorbox}[colback=ugmLightGrey,colframe=ugmBlue,title=\small Key Insight]
+        \scriptsize
+        Each AI tool was leveraged for its \textbf{comparative advantage}. Kimi excels at long-document generation and structured reasoning. OpenDesign provides rapid visual iteration. GLM~5.1 with OpenCode's agentic harness enables multi-file code generation with tool use capabilities (file read/write, shell commands, search).
     \end{tcolorbox}
 \end{frame}
 
@@ -535,11 +541,12 @@ cucigo/
 
 \begin{frame}
     \frametitle{Lessons Learned}
-
+    \small
     \begin{columns}[T]
         \begin{column}{0.48\textwidth}
-            \begin{tcolorbox}[colback=green!5,colframe=green!60!black,title=What Worked Well]
-                \begin{itemize}
+            \begin{tcolorbox}[colback=green!5,colframe=green!60!black,title=\small What Worked Well]
+                \scriptsize
+                \begin{itemize}\setlength{\itemsep}{1pt}
                     \item AI-assisted ideation rapidly produced a comprehensive SRS document following IEEE 830 standards
                     \item HTML prototypes enabled \textbf{visual stakeholder feedback} before writing any code
                     \item OpenCode's agentic harness allowed parallel file creation, dramatically reducing development time
@@ -550,8 +557,9 @@ cucigo/
         \end{column}
 
         \begin{column}{0.48\textwidth}
-            \begin{tcolorbox}[colback=red!5,colframe=red!70!black,title=Challenges]
-                \begin{itemize}
+            \begin{tcolorbox}[colback=red!5,colframe=red!70!black,title=\small Challenges]
+                \scriptsize
+                \begin{itemize}\setlength{\itemsep}{1pt}
                     \item Prisma v7 required driver adapters (breaking change from v6 patterns) --- required resolving import paths and API changes
                     \item AI-generated code needed \textbf{architectural review}: the agent sometimes chose suboptimal patterns that required manual correction
                     \item Tailwind CSS v4 uses a different configuration approach (\texttt{@theme inline}) than v3's \texttt{tailwind.config.js}
@@ -569,9 +577,10 @@ cucigo/
 
 \begin{frame}
     \frametitle{Conclusion \& Future Work}
-
-    \begin{tcolorbox}[colback=ugmLightGrey,colframe=ugmBlue,title=Summary]
-        \begin{itemize}
+    \small
+    \begin{tcolorbox}[colback=ugmLightGrey,colframe=ugmBlue,title=\small Summary]
+        \scriptsize
+        \begin{itemize}\setlength{\itemsep}{1pt}
             \item Successfully implemented a \textbf{full-stack CuciGo web application} covering all 4 user roles
             \item \textbf{14 routes} translating 13 HTML prototypes into functional React pages
             \item \textbf{11 database models} with seed data for testing
@@ -580,10 +589,11 @@ cucigo/
         \end{itemize}
     \end{tcolorbox}
 
-    \vspace{0.5em}
+    \vspace{0.3em}
 
-    \begin{tcolorbox}[colback=cucigoTeal!10,colframe=cucigoTeal,title=Future Work]
-        \begin{itemize}
+    \begin{tcolorbox}[colback=cucigoTeal!10,colframe=cucigoTeal,title=\small Future Work]
+        \scriptsize
+        \begin{itemize}\setlength{\itemsep}{1pt}
             \item \textbf{Phase 2 features:} Spending tracker analytics, shared laundry ordering flow
             \item \textbf{Real-time integration:} WebSocket-based tracking, push notifications (FCM/APNS)
             \item \textbf{Payment gateway:} Midtrans/Xendit integration for real e-wallet \& bank transfer
@@ -596,8 +606,9 @@ cucigo/
 
 \begin{frame}
     \frametitle{References}
-
+    \small
     \begin{thebibliography}{9}
+        \scriptsize
         \bibitem{ieee830} IEEE Standard 830-1998, \textit{IEEE Recommended Practice for Software Requirements Specifications}, IEEE, 1998.
 
         \bibitem{iso29148} ISO/IEC/IEEE 29148:2018, \textit{Systems and software engineering --- Life cycle processes --- Requirements engineering}, ISO, 2018.
