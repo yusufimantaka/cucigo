@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { Screen } from "@/components/layout/Screen";
 
 const features = [
   { icon: "🚴", title: "Pickup & Delivery", desc: "We pick up from your kost and deliver back fresh" },
@@ -10,8 +11,8 @@ const features = [
 
 export default function SplashPage() {
   return (
-    <div className="mobile-frame">
-      <div className="flex flex-1 flex-col items-center justify-between bg-gradient-to-b from-primary-500 to-primary-700 px-8 py-12 text-white">
+    <Screen>
+      <div className="flex flex-1 flex-col items-center justify-between bg-gradient-to-b from-primary-500 to-primary-700 px-8 py-10 text-white">
         <div className="flex flex-1 flex-col items-center justify-center gap-6">
           <div className="flex h-[88px] w-[88px] items-center justify-center rounded-full bg-white/20 backdrop-blur-sm">
             <div className="flex h-[64px] w-[64px] items-center justify-center rounded-full bg-white">
@@ -41,10 +42,10 @@ export default function SplashPage() {
           </div>
         </div>
 
-        <div className="w-full space-y-3 pb-4">
+        <div className="w-full space-y-3">
           <Link
             href="/auth/login"
-            className="flex h-[52px] w-full items-center justify-center rounded-2xl bg-white font-semibold text-primary-700 transition-all"
+            className="flex h-[52px] w-full items-center justify-center rounded-2xl bg-white font-semibold text-primary-700 transition-all active:scale-[0.98]"
           >
             Get Started
           </Link>
@@ -56,12 +57,12 @@ export default function SplashPage() {
           </p>
         </div>
 
-        <div className="flex gap-2 pb-2">
+        <div className="flex gap-2 pt-4">
           <span className="h-[8px] w-[8px] rounded-full bg-white" />
           <span className="h-[8px] w-[8px] rounded-full bg-white/40" />
           <span className="h-[8px] w-[8px] rounded-full bg-white/40" />
         </div>
       </div>
-    </div>
+    </Screen>
   );
 }

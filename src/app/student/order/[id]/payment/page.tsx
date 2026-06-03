@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useParams, useRouter } from "next/navigation";
+import { Screen } from "@/components/layout/Screen";
 import { NavBar } from "@/components/layout/NavBar";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
@@ -39,11 +40,11 @@ export default function PaymentPage() {
   };
 
   return (
-    <div className="mobile-frame">
-      <div className="flex flex-1 flex-col overflow-y-auto bg-bg">
+    <Screen>
+      <div className="flex flex-1 flex-col overflow-hidden bg-bg">
         <NavBar title="Payment" onBack={() => router.back()} />
 
-        <div className="flex-1 px-5 pb-28">
+        <div className="flex-1 overflow-y-auto scrollbar-hide px-5 pb-4">
           <div className="mt-4 rounded-2xl bg-gradient-to-br from-primary-500 to-primary-600 p-6 text-center text-white relative overflow-hidden mb-6">
             <div className="absolute -top-10 -right-10 w-[120px] h-[120px] rounded-full bg-white/10" />
             <p className="text-sm text-white/85">Total to pay</p>
@@ -59,7 +60,7 @@ export default function PaymentPage() {
                 <button
                   key={method.id}
                   onClick={() => setSelectedMethod(method.id)}
-                  className={`flex items-center gap-4 p-4 rounded-2xl border-2 transition-all ${
+                  className={`flex items-center gap-4 p-4 rounded-2xl border-2 transition-all text-left active:scale-[0.98] ${
                     isSelected
                       ? "border-primary bg-primary-50 ring-[3px] ring-primary-100"
                       : "border-border-light bg-surface"
@@ -101,7 +102,7 @@ export default function PaymentPage() {
                     {row.copyable && (
                       <button
                         onClick={handleCopy}
-                        className="bg-primary-50 border-none rounded-lg px-2 py-0.5 text-xs font-semibold text-primary-600 cursor-pointer"
+                        className="bg-primary-50 border-none rounded-lg px-2 py-0.5 text-xs font-semibold text-primary-600 cursor-pointer transition-all active:scale-95"
                       >
                         {copied ? "Copied!" : "Copy"}
                       </button>
@@ -127,7 +128,7 @@ export default function PaymentPage() {
           </div>
         </div>
 
-        <div className="absolute bottom-0 left-0 right-0 border-t border-border-light bg-surface px-5 py-4 pb-6">
+        <div className="shrink-0 border-t border-border-light bg-surface px-5 py-4 safe-bottom">
           <div className="flex items-center justify-center gap-2 mb-3 text-xs text-muted">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
               <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
@@ -137,6 +138,6 @@ export default function PaymentPage() {
           <Button fullWidth>Pay Rp 16.100</Button>
         </div>
       </div>
-    </div>
+    </Screen>
   );
 }

@@ -59,7 +59,7 @@ html {
 
 body {
   font-family: var(--font-body);
-  background: var(--color-bg);
+  background: #e5e7eb;
   color: var(--color-fg);
   line-height: 1.5;
 }
@@ -87,6 +87,8 @@ body {
     margin-bottom: 5vh;
     border-radius: 40px;
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15), 0 0 0 8px #1e2030;
+    padding-top: 20px;
+    padding-bottom: 20px;
   }
 }
 
@@ -115,6 +117,10 @@ input:focus, button:focus, a:focus, select:focus, textarea:focus {
 }
 
 /* Safe area padding utilities */
+.safe-top {
+  padding-top: max(env(safe-area-inset-top, 0px), 20px);
+}
+
 .safe-bottom {
   padding-bottom: max(env(safe-area-inset-bottom, 0px), 16px);
 }

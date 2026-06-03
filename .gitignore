@@ -47,3 +47,15 @@ next-env.d.ts
 # database
 *.db
 *.db-journal
+
+# latex aux files
+*.aux
+*.log
+*.nav
+*.out
+*.snm
+*.toc
+*.vrb
+*.fls
+*.fdb_latexmk
+*.synctex.gz

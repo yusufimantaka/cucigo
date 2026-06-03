@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import { useParams, useRouter } from "next/navigation";
+import { Screen } from "@/components/layout/Screen";
 import { NavBar } from "@/components/layout/NavBar";
 import { SERVICE_TYPES, formatRp } from "@/lib/constants";
 
@@ -33,11 +35,11 @@ export default function StudentOrderPage() {
   const total = pricePerKg * weight;
 
   return (
-    <div className="mobile-frame">
-      <div className="flex flex-1 flex-col overflow-y-auto bg-bg">
+    <Screen>
+      <div className="flex flex-1 flex-col overflow-hidden bg-bg">
         <NavBar title="New Order" onBack={() => {}} />
 
-        <div className="flex-1 px-5 pb-28">
+        <div className="flex-1 overflow-y-auto scrollbar-hide px-5 pb-4">
           <h2 className="font-display font-bold text-base text-fg">Service Type</h2>
           <div className="mt-3 grid grid-cols-3 gap-3">
             {serviceKeys.map((key) => {
@@ -47,7 +49,7 @@ export default function StudentOrderPage() {
                 <button
                   key={key}
                   onClick={() => setSelectedService(key)}
-                  className={`flex flex-col items-center gap-2 rounded-2xl border p-4 transition-all ${
+                  className={`flex flex-col items-center gap-2 rounded-2xl border p-4 transition-all active:scale-[0.98] ${
                     isActive
                       ? "border-primary bg-primary-50"
                       : "border-border-light bg-surface"
@@ -64,14 +66,14 @@ export default function StudentOrderPage() {
           </div>
 
           <h2 className="mt-6 font-display font-bold text-base text-fg">Laundry Partner</h2>
-          <div className="mt-3 flex gap-3 overflow-x-auto pb-2 -mx-1 px-1">
+          <div className="mt-3 flex gap-3 overflow-x-auto scrollbar-hide pb-2 -mx-1 px-1">
             {partners.map((p) => {
               const isActive = selectedPartner === p.id;
               return (
                 <button
                   key={p.id}
                   onClick={() => setSelectedPartner(p.id)}
-                  className={`min-w-[140px] flex-shrink-0 flex flex-col items-center gap-2 rounded-2xl border p-4 transition-all ${
+                  className={`min-w-[140px] flex-shrink-0 flex flex-col items-center gap-2 rounded-2xl border p-4 transition-all active:scale-[0.98] ${
                     isActive ? "border-primary bg-primary-50" : "border-border-light bg-surface"
                   }`}
                 >
@@ -89,7 +91,7 @@ export default function StudentOrderPage() {
           <div className="mt-3 flex items-center justify-center gap-6">
             <button
               onClick={() => setWeight(Math.max(1, weight - 1))}
-              className="flex h-[44px] w-[44px] items-center justify-center rounded-full border border-border bg-surface text-lg font-bold text-fg"
+              className="flex h-[44px] w-[44px] items-center justify-center rounded-full border border-border bg-surface text-lg font-bold text-fg transition-all active:scale-[0.95] active:bg-border-light"
             >
               −
             </button>
@@ -99,7 +101,7 @@ export default function StudentOrderPage() {
             </div>
             <button
               onClick={() => setWeight(Math.min(20, weight + 1))}
-              className="flex h-[44px] w-[44px] items-center justify-center rounded-full border border-border bg-surface text-lg font-bold text-fg"
+              className="flex h-[44px] w-[44px] items-center justify-center rounded-full border border-border bg-surface text-lg font-bold text-fg transition-all active:scale-[0.95] active:bg-border-light"
             >
               +
             </button>
@@ -109,12 +111,12 @@ export default function StudentOrderPage() {
           </p>
 
           <h2 className="mt-6 font-display font-bold text-base text-fg">Pickup Schedule</h2>
-          <div className="mt-3 flex gap-2 overflow-x-auto pb-1">
+          <div className="mt-3 flex gap-2 overflow-x-auto scrollbar-hide pb-1">
             {dateChips.map((d) => (
               <button
                 key={d.full}
                 onClick={() => setSelectedDate(d.full)}
-                className={`flex flex-col items-center rounded-xl border px-4 py-2.5 transition-all min-w-[60px] ${
+                className={`flex flex-col items-center rounded-xl border px-4 py-2.5 transition-all min-w-[60px] active:scale-[0.95] ${
                   selectedDate === d.full
                     ? "border-primary bg-primary text-white"
                     : "border-border-light bg-surface text-fg"
@@ -130,7 +132,7 @@ export default function StudentOrderPage() {
               <button
                 key={t}
                 onClick={() => setSelectedTime(t)}
-                className={`rounded-xl border px-3 py-2 text-xs font-semibold transition-all ${
+                className={`rounded-xl border px-3 py-2 text-xs font-semibold transition-all active:scale-[0.95] ${
                   selectedTime === t
                     ? "border-primary bg-primary text-white"
                     : "border-border-light bg-surface text-fg"
@@ -155,16 +157,16 @@ export default function StudentOrderPage() {
           </div>
         </div>
 
-        <div className="absolute bottom-0 left-0 right-0 border-t border-border-light bg-surface px-5 py-4">
+        <div className="shrink-0 border-t border-border-light bg-surface px-5 py-4 safe-bottom">
           <div className="flex items-center justify-between mb-3">
             <span className="text-sm text-muted">Estimated total</span>
             <span className="text-xl font-bold text-fg">{formatRp(total)}</span>
           </div>
-          <button className="flex h-[52px] w-full items-center justify-center rounded-xl bg-primary font-semibold text-white">
+          <button className="flex h-[52px] w-full items-center justify-center rounded-xl bg-primary font-semibold text-white transition-all active:scale-[0.98] active:bg-primary-600">
             Continue to Summary
           </button>
         </div>
       </div>
-    </div>
+    </Screen>
   );
 }

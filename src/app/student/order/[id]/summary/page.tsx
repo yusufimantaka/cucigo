@@ -2,6 +2,7 @@
 
 import { useParams, useRouter } from "next/navigation";
 import Link from "next/link";
+import { Screen } from "@/components/layout/Screen";
 import { NavBar } from "@/components/layout/NavBar";
 import { Card } from "@/components/ui/Card";
 import { Chip } from "@/components/ui/Chip";
@@ -33,11 +34,11 @@ export default function OrderSummaryPage() {
   const id = params.id as string;
 
   return (
-    <div className="mobile-frame">
-      <div className="flex flex-1 flex-col overflow-y-auto bg-bg">
+    <Screen>
+      <div className="flex flex-1 flex-col overflow-hidden bg-bg">
         <NavBar title="Order Summary" onBack={() => router.back()} />
 
-        <div className="flex-1 px-5 pb-28">
+        <div className="flex-1 overflow-y-auto scrollbar-hide px-5 pb-4">
           <Card className="mt-4">
             <div className="flex items-center justify-between border-b border-border-light pb-3 mb-4">
               <h3 className="font-display font-bold text-base text-fg">Order Details</h3>
@@ -143,12 +144,12 @@ export default function OrderSummaryPage() {
           </Card>
         </div>
 
-        <div className="absolute bottom-0 left-0 right-0 border-t border-border-light bg-surface px-5 py-4 pb-6">
+        <div className="shrink-0 border-t border-border-light bg-surface px-5 py-4 safe-bottom">
           <Link href={`/student/order/${id}/payment`}>
             <Button fullWidth>Continue to Payment</Button>
           </Link>
         </div>
       </div>
-    </div>
+    </Screen>
   );
 }
